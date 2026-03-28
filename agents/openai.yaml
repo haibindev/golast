@@ -1,0 +1,7 @@
+interface:
+  display_name: "GoLast"
+  short_description: "Mentioning it alone should recover the previous workspace session"
+  default_prompt: "Use [$golast](C:/Users/hbstr/.codex/skills/golast/SKILL.md) to recover the previous workspace session's actionable request and continue from it."
+
+policy:
+  allow_implicit_invocation: true
