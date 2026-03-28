@@ -86,7 +86,11 @@ That's it. Codex auto-detects the skill on next launch.
 
 ## Usage
 
-After a compaction crash, just type one word in Codex:
+After a compaction crash:
+
+1. **Stay in the same workspace** where the crashed session was running
+2. **Start a new Codex session** (the crashed one is already gone)
+3. **Type `golast`** to invoke the skill
 
 ```
 golast
@@ -160,7 +164,11 @@ error sending request for url (https://chatgpt.com/backend-api/codex/responses/c
 
 ### 解决方案
 
-压缩崩溃后，在 Codex 中直接输入一个词：
+压缩崩溃后：
+
+1. **留在原工作区**（崩溃的会话已经丢失）
+2. **新开一个 Codex 会话**
+3. **输入 `golast`** 触发技能
 
 ```
 golast
