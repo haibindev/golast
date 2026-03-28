@@ -6,7 +6,7 @@ description: "Recover the previous session's last actionable request for the cur
 # Resume Last
 
 Use this skill when the user wants to continue the previous session for the current workspace.
-Invoke it as [$golast](C:/Users/hbstr/.codex/skills/golast/SKILL.md).
+Invoke it as `$golast`.
 
 If the user's message is only `golast` or only the skill link, treat it as an execution request:
 "recover the previous session for the current workspace and continue from it now".
