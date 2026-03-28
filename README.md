@@ -25,8 +25,6 @@ Error running remote compact task: stream disconnected before completion:
 error sending request for url (https://chatgpt.com/backend-api/codex/responses/compact)
 ```
 
-Your session is gone. The context is lost. You don't remember what you asked, and Codex doesn't either.
-
 **golast** is a Codex global skill that recovers the last actionable request from a crashed or compacted session, so you can pick up exactly where you left off.
 
 > No more copy-pasting from memory. No more re-explaining the task.
@@ -159,8 +157,6 @@ Codex 会定期执行"自动压缩背景信息"。当压缩请求中途断开时
 Error running remote compact task: stream disconnected before completion:
 error sending request for url (https://chatgpt.com/backend-api/codex/responses/compact)
 ```
-
-会话丢失，上下文清空，你和 Codex 都不记得之前在做什么。
 
 ### 解决方案
 
