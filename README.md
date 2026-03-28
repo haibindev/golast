@@ -78,36 +78,21 @@ The script reads Codex's local SQLite state database, walks the conversation tim
 
 ## Install
 
-### As a Codex Global Skill
-
 ```bash
-# Clone into Codex skills directory
 git clone https://github.com/haibindev/golast.git ~/.codex/skills/golast
 ```
 
-That's it. Codex will auto-detect the skill on next launch.
-
-### Standalone Usage
-
-```bash
-# Run directly
-python scripts/resume_last_request.py --cwd /path/to/your/project --format json
-
-# Or text output
-python scripts/resume_last_request.py --cwd /path/to/your/project --format text
-```
+That's it. Codex auto-detects the skill on next launch.
 
 ## Usage
 
-### In Codex
-
-Just type:
+After a compaction crash, just type one word in Codex:
 
 ```
 golast
 ```
 
-Codex will recover the previous session's request and continue from it automatically.
+Codex will automatically recover the previous session's last actionable request and **continue from it immediately** — no manual copy-paste, no re-explaining, no context reconstruction.
 
 ### CLI Options
 
@@ -175,7 +160,13 @@ error sending request for url (https://chatgpt.com/backend-api/codex/responses/c
 
 ### 解决方案
 
-输入 `golast`，自动恢复上一次会话的最后一个可执行请求，继续工作。
+压缩崩溃后，在 Codex 中直接输入一个词：
+
+```
+golast
+```
+
+自动恢复上一次会话的最后一个可执行请求，**立即继续工作** — 无需手动回忆、无需重新描述任务、无需重建上下文。
 
 ### 工作原理
 
