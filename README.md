@@ -8,13 +8,17 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/haibindev/golast?style=social)](https://github.com/haibindev/golast)
 
+**If this tool saved your session, please give it a star!**
+
+[![Star this repo](https://img.shields.io/badge/%E2%AD%90_Star_this_repo-yellow?style=for-the-badge&logo=github)](https://github.com/haibindev/golast)
+
 [中文说明](#中文说明)
 
 </div>
 
 ---
 
-Codex periodically runs background compaction ("正在自动压缩背景信息…"). When it fails, you get:
+Codex periodically runs background compaction ("auto-compacting background context"). When it fails, you get:
 
 ```
 Error running remote compact task: stream disconnected before completion:
@@ -61,14 +65,14 @@ You type: golast
   Codex resumes the recovered request
 ```
 
-The script reads Codex's local SQLite state database, walks the conversation timeline, and intelligently resolves what you actually asked — even if your last message was just "ok", "继续", or a supplement like "补充：还要处理边界情况".
+The script reads Codex's local SQLite state database, walks the conversation timeline, and intelligently resolves what you actually asked — even if your last message was just "ok", "sure", or a brief supplement.
 
 ## Features
 
-- **Smart request resolution** — Skips low-signal messages ("continue", "go on", "继续") and traces back to the real request
-- **Agreement detection** — If you said "ok" or "同意", recovers the assistant's suggestion you agreed to
-- **Supplement merging** — If your last message was "补充：…", merges it with the previous context
-- **Ambiguity expansion** — When the recovered request contains vague references ("三端", "这个方案", "按上面那样"), automatically walks upward to find the concrete explanation
+- **Smart request resolution** — Skips low-signal messages ("continue", "go on", "keep going") and traces back to the real request
+- **Agreement detection** — If you said "ok" or "agreed", recovers the assistant's suggestion you agreed to
+- **Supplement merging** — If your last message was a supplement (e.g., "additionally…"), merges it with the previous context
+- **Ambiguity expansion** — When the recovered request contains vague references ("do that", "same as above", "that plan"), automatically walks upward to find the concrete explanation
 - **Decision basis tracking** — Recovers earlier user requirements that define selection criteria (e.g., comparing backends before choosing one)
 - **Bilingual** — Handles both English and Chinese conversation patterns
 
