@@ -1,6 +1,6 @@
 ---
 name: "golast"
-description: "Recover the previous session's last actionable request for the current workspace. Use when the user wants to continue the previous session, recover after compaction/crash, resume unfinished Codex work, or sends only `golast` or the skill link as shorthand for immediate recovery and continuation."
+description: "Recover the previous session's last actionable request for the current workspace, but only at the very start of a fresh session. Use when the user's first substantive turn asks to continue the previous session, recover after compaction/crash, resume unfinished work, or when they send only `golast` or the skill link. Do not auto-trigger later in an already active conversation."
 ---
 
 # Resume Last
@@ -10,6 +10,15 @@ Invoke it as `$golast`.
 
 If the user's message is only `golast` or only the skill link, treat it as an execution request:
 "recover the previous session for the current workspace and continue from it now".
+
+## Start-only gate
+
+Use this skill only when the request appears at the beginning of the current session.
+
+- Allowed: the first substantive user turn says `golast`, pastes the skill link, asks to continue the previous session, or asks to recover after a crash/compaction.
+- Not allowed for automatic invocation: later in an already active session after substantive work has already happened in the current thread.
+- In an active session, do not auto-trigger from vague phrases such as `continue`, `继续`, `接着做`, `继续 hbcore 任务`, or similar wording. Prefer the current thread context instead.
+- Explicit override: if the user later explicitly types `golast` or pastes the skill link, you may still execute this skill because that is no longer an automatic invocation.
 
 ## Quick start
 
@@ -48,4 +57,5 @@ If the user's message is only `golast` or only the skill link, treat it as an ex
 
 - Ignore boilerplate such as `# AGENTS.md instructions ...`, `<turn_aborted>`, or a lone `codex`.
 - Do not fabricate a previous request if nothing is found.
+- If the current session has already moved past its opening turn, do not auto-use this skill unless the user explicitly invokes `golast` or the skill link.
 - Unless the user explicitly asks for text only, resume the work instead of stopping after recovery.

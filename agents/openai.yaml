@@ -1,7 +1,7 @@
 interface:
   display_name: "GoLast"
-  short_description: "Mentioning it alone should recover the previous workspace session"
-  default_prompt: "Use $golast to recover the previous workspace session's actionable request and continue from it."
+  short_description: "Use it at session start to recover the previous workspace session"
+  default_prompt: "At the start of a fresh session, use $golast to recover the previous workspace session's actionable request and continue from it."
 
 policy:
-  allow_implicit_invocation: true
+  allow_implicit_invocation: false
